@@ -108,8 +108,8 @@ jekyll server
 支付宝
 ----------------
 
-<img src="/styles/images/zhifubao.PNG" alt="支付宝二维码付款给Freud" width="310" />
+<img src="/styles/images/zhifubao.jpg" alt="支付宝二维码付款给Freud" width="310" />
 
 微信
 ----------------
-![微信二维码付款给Freud](/styles/images/weixin.jpg)
+![微信二维码付款给Freud](/styles/images/weixin.png)

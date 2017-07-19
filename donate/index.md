@@ -41,7 +41,7 @@ header: 打赏
 <hr>
 您可以选择手机微信扫一扫
 
-![微信二维码付款给Freud]({{ '/styles/images/weixin.jpg' | prepend: site.baseurl }})
+![微信二维码付款给Freud]({{ '/styles/images/weixin.png' | prepend: site.baseurl }})
 
 <br>
 <br>
