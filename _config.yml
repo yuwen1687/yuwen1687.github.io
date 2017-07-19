@@ -6,10 +6,10 @@ url: https://yuwen1687.github.io/
 # resume_site: http://www.hifreud.com/Resume.io/
 github: https://github.com/yuwen1687/
 baseurl: ""
-description: 分享学习的点滴
+description: 前端菜鸟学习经历分享
 meta_description: 前端学习
 motto: 好好学习，天天向上
-banner: 学而不思则罔，思而不学则殆。
+banner: 为了不为什么的坚持✊
 
 #permalink: /:categories/:year/:month/:day/:title/
 permalink: /:year/:month/:day/:title/
