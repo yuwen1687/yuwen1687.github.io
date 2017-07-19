@@ -112,4 +112,4 @@ jekyll server
 
 微信
 ----------------
-![微信二维码付款给Freud](/styles/images/weixin.png)
+![微信二维码付款给Freud](/styles/images/weixin.jpg)
