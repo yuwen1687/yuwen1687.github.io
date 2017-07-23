@@ -122,12 +122,6 @@ textarea {
   font-size: 100%;
   margin: 0;
 }
-.post-title{
-  text-align: center;
-}
-.meta{
-  text-align: center;
-}
 button,
 input {
   line-height: normal;
@@ -166,6 +160,12 @@ button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
+}
+.post-title{
+  text-align: center;
+}
+.meta{
+  text-align: center;
 }
 textarea {
   overflow: auto;
