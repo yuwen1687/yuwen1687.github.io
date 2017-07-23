@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 相关博客
+title: 相关网页
 permalink: /reference/
 ---
 
@@ -8,24 +8,35 @@ permalink: /reference/
 {:toc}
 
 
-走向架构师之路
+W3school
 =====================
-[走向架构师之路](http://blog.csdn.net/cutesource/article/details/4901506)
+[W3school](http://www.w3school.com.cn/)
 
-HTTP协议详解
+Bootstrap中文网
 =====================
-[HTTP协议详解](http://www.jmarshall.com/easy/http/)
+[Bootstrap中文网](http://www.bootcss.com/)
 
-Axis 2.0的入门
+ECMAScript 6 入门
 =====================
-[曹胜欢][http://blog.csdn.net/csh624366188/article/details/8362696](http://blog.csdn.net/csh624366188/article/details/8362696)
+[ECMAScript 6 入门](http://es6.ruanyifeng.com/)
 
-[一线码农]
+React.js 小书
 =====================
-算法入门和分布式缓存入门
-[http://www.cnblogs.com/huangxincheng/archive/2011/11/14/2249046.html](http://www.cnblogs.com/huangxincheng/archive/2011/11/14/2249046.html)
+[React.js 小书](http://huziketang.com/books/react/)
 
-[雷霄骅]
+宁皓网
 =====================
-视音频编解码技术学习方法
-[http://blog.csdn.net/leixiaohua1020/article/details/18893769](http://blog.csdn.net/leixiaohua1020/article/details/18893769)
+[宁皓网](https://ninghao.net/)
+
+Node教程
+=====================
+[Node教程](https://www.nodebeginner.org/index-zh-cn.html)
+
+
+前端网
+=====================
+[前端网](http://www.qdfuns.com/)
+
+媛媛的小窝
+=====================
+[前端博客](http://www.zyy1217.com/)
