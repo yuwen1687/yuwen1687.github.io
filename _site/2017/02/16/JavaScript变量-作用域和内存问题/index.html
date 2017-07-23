@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript变量、作用域和内存问题 - 余雯的学习博客</title>
+
+	<link rel="shortcut icon" href="/styles/images/favcion.png">
+	<link rel="icon" href="/styles/images/favcion.png">
+
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/styles/css/syntax.css">
+	<link rel="canonical" href="/2017/02/16/JavaScript%E5%8F%98%E9%87%8F-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98/">
+	<link rel="alternate" type="application/rss+xml" title="余雯的学习博客" href="/feed.xml">
+	
+	<meta name="keywords" content="JavaScript变量、作用域和内存问题, 余雯的学习博客, 前端学习">
+	<meta name="description" content="前端学习">
+
+	<script src="/styles/js/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  	<![endif]-->
+  	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?94be4b0f9fc5d94cc0d0415ea6761ae9";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+  	<style type="text/css">
+	  	.docs-content{
+	  		margin-bottom: 10px;
+	  	}
+  	</style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/categories/">文章分类</a>
+        </li>
+        <li>
+          <a href="/tag">文章标签</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></a>
+        </li>
+        <li>
+          <a href="/donate/"><strong>打赏</strong></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a rel="nofollow" target="_blank" href="https://github.com/yuwen1687/">Github</a></li>
+            <li><a rel="nofollow" href="/books">我的书单</a></li>
+            <li><a rel="nofollow" href="/reference">推荐网页</a></li>
+            <li class="divider"></li>
+            <li><a rel="nofollow" target="_blank" href="https://github.com/yuwen1687/yuwen1687.github.io">本项目</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header" id="content">
+  <div class="container">
+  	
+  		<!--
+		    <h1>JavaScript变量、作用域和内存问题</h1>
+		    <p>Post on Feb 16, 2017 by <a href="/about">Yu Wen</a></p>
+		-->
+		    <h1>好好学习，天天向上</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/categories/#前端-ref">前端</a>	/
+    	<a href="/tag/#JS-ref">JS</a>
+    
+  </div>
+</div>
+
+    
+
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>文章目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2017">2017</a>
+          <ul class="nav">
+            <li><a href="#month_2017_February">February</a></li>
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2016">2016</a>
+            <ul class="nav">
+              <li><a href="#month_2016_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+  <div style="height: 200px;width: 200px;">
+    <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5ytn1ssq6za&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"> 
+    </script>
+  </div>
+</div>
+
+ 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title" style="text-align: center;">JavaScript变量、作用域和内存问题</h1>
+              <!--
+                <p class="post-meta">Feb 16, 2017</p>
+              -->
+              <div class="meta" style="text-align: center;">Posted on <span class="postdate">Feb 16, 2017</span> By <a target="_blank" href="http://localhost:4000">Yu Wen</a></div>
+              <br />
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#基本内容" id="markdown-toc-基本内容">基本内容</a></li>
+  <li><a href="#预加载变量提升" id="markdown-toc-预加载变量提升">预加载、变量提升</a></li>
+</ul>
+
+<h1 id="基本内容" style="font-size: 20px">基本内容</h1>
+
+<p>1、ECMAScript变量包含两种类型的值：基本类型值和引用类型值。<br />
+2、JavaScript变量为松散类型，松散类型变量的特点就是定义的时候不给它指定类型，变量在运行的时候可以随便改变数据类型。<br />
+3、执行环境及作用域<br />
+执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。
+每个函数都有自己的执行环境。当执行流进入下一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行之后，栈将其环境弹出，把控制权交给之前的执行环境。
+当代码在一个环境中执行时，会创建变量对象的一个作用域链，作用域链的用途是保证对执行环境有权访问的所有变量和函数的有序访问。</p>
+
+<p>示例代码1:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var color = "blue";  
+function changeColor(){  
+  if(color==="blue"){  
+    color="red";  
+    }else{  
+     color="blue";  
+    }  
+}  
+changeColor();  
+console.log("Color is now"+color);   
+</code></pre>
+</div>
+
+<p>运行结果：Color is now red<br />
+在上面这个例子中，变量color为全局环境的变量对象，在作用域链中可以找到它，所以在函数内部可以访问变量color，执行if语句，color变成red。<br /></p>
+
+<p>示例代码2:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var color = "blue";  
+function changeColor(){  
+var anotherColor = "red";  
+function swapColors(){  
+  var tempColor = anotherColor;  
+  anotherColor = color;  
+  color = tempColor;  
+  //这里可以访问color、anotherColor和tempColor
+}  
+//这里可以访问color和anotherColor,但不能访问tempColor  
+  swapColors();  
+}  
+//这里只能访问color  
+changeColor();  
+console.log("color is now "+ color);  
+</code></pre>
+</div>
+
+<p>运行结果：color is now red<br />
+在上面这个例子中，涉及三个执行环境，：全局环境、changeColor()的局部环境和swapColor()的局部环境，全局环境中有一个变量color和changeColor()函数，changeColor()局部环境中有一个变量anotherColor和swapColors()函数，但是可以访问变量color,swapColors()局部环境中包含一个变量tempColor，但是可以访问变量color和变量anotherColor。
+这段代码环境的作用域链如下图所示
+<img src="/styles/images/JavaScript变量、作用域和内存问题/zuoyongyu.png" alt="/styles/images/JavaScript变量、作用域和内存问题/zuoyongyu.png" /></p>
+
+<p><br />
+在执行环境中，内部环境可以通过作用域链访问外部环境的变量和函数，但是外部环境不能访问内部环境的变量和函数，每个环境只能向上搜索作用域链。</p>
+
+<h1 id="预加载变量提升" style="font-size: 20px">预加载、变量提升</h1>
+<p>javascript语言的松散类型的特点以及运行时候随时更改变量类型的特点，很多程序员会认为javascript变量的定义是在运行期进行的，更有甚者有些人认为javascript代码只有运行期，其实这种理解是错误的，javascript代码在运行前还有一个过程就是：预加载，预加载的目的是要事先构造运行环境例如全局环境，函数运行环境，还要构造作用域链，而环境和作用域的构造的核心内容就是指定好变量属于哪个范畴，因此在javascript语言里变量的定义是在预加载完成而非在运行时期。<br />
+JavaScript引擎的工作方式是先解析代码，获取所有被声明的变量，然后再一行一行的运行，这造成的结果，就是所有变量的声明语句都会被提升到代码的头部，这就叫做变量提升。
+例:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var a = 1;  
+function test(){  
+  console.log(a);//undefined  
+  var a = 2;  
+  console.log(a);//2  
+}  
+test();  
+</code></pre>
+</div>
+
+<p>上面这段代码在函数的局部作用域下变量a被重新定义了，在预加载时候a的作用域范围也就被框定了，a变量不再属于全局变量，而是属于函数作用域，只不过赋值操作是在运行期执行（这就是为什么javascript语言在运行时候会改变变量的类型，因为赋值操作是在运行期进行的），所以第一次使用a变量时候，a变量在局部作用域里没有被赋值，只有栈区的标示名称，因此结果就是undefined了。（这也就是js里的变量提升的原理）</p>
+
+
+            </article>
+            <div class="text-center" style="margin-top: 10%">
+              <a class="btn btn-warning" href="/donate/">
+                 <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container">
+		<p style="text-align: center;" class="copyright">Copyright &copy; 2016-2017 <a href=""><code>Yu Wen</code></a>.</p>
+		<p style="text-align: center;">Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="http://lesscss.cn/">Less</a>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  </body>
+</html>

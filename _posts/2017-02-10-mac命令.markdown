@@ -1,0 +1,21 @@
+---
+layout: post
+title:  mac命令
+date:   2017-02-10 20:05:00 +0800
+categories: 工具
+tag: mac
+---
+
+* content
+{:toc}
+
+
+显示隐藏文件命令：
+------------------------
+
+defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder
+
+取消显示隐藏文件命令：
+------------------------
+
+defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder
