@@ -161,6 +161,12 @@ input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
+.post-title{
+  text-align: center;
+}
+.meta{
+  text-align: center;
+}
 textarea {
   overflow: auto;
   vertical-align: top;
