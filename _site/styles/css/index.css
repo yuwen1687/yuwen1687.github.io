@@ -122,6 +122,12 @@ textarea {
   font-size: 100%;
   margin: 0;
 }
+.post-title{
+  text-align: center;
+}
+.meta{
+  text-align: center;
+}
 button,
 input {
   line-height: normal;

@@ -5,8 +5,8 @@
     <description>前端菜鸟学习经历分享</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Jul 2017 20:36:38 +0800</pubDate>
-    <lastBuildDate>Sun, 23 Jul 2017 20:36:38 +0800</lastBuildDate>
+    <pubDate>Sun, 23 Jul 2017 20:55:13 +0800</pubDate>
+    <lastBuildDate>Sun, 23 Jul 2017 20:55:13 +0800</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -159,42 +159,40 @@ test();
       </item>
     
       <item>
-        <title>Docker常用命令</title>
-        <description>* content
-{:toc}
+        <title>Docker命令</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#docker常用命令&quot; id=&quot;markdown-toc-docker常用命令&quot;&gt;Docker常用命令：&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
+&lt;h2 id=&quot;docker常用命令&quot;&gt;Docker常用命令：&lt;/h2&gt;
 
-Docker常用命令：
-------------------------
-
-docker info：检查Docker安装是否正确
-&lt;br&gt;
+&lt;p&gt;docker info：检查Docker安装是否正确
+&lt;br /&gt;
 docker logs :查看job的当前状态
-&lt;br&gt;
+&lt;br /&gt;
 docker help:查看Docker的所有命令
-&lt;br&gt;
+&lt;br /&gt;
 docker stop：停止当前容器
-&lt;br&gt;
+&lt;br /&gt;
 docker restart:重新启动该容器
-&lt;br&gt;
+&lt;br /&gt;
 docker rm:移除容器（移除之前需先将该容器停止）
-&lt;br&gt;
+&lt;br /&gt;
 docker commit:将容器的状态保存为镜像
-&lt;br&gt;
+&lt;br /&gt;
 docker images:查看所有镜像的列表
-&lt;br&gt;
+&lt;br /&gt;
 docker search (image-name):查看registry中的镜像
-&lt;br&gt;
+&lt;br /&gt;
 docker history (image-name):查看镜像的历史版本
-&lt;br&gt;
-docker push (image-name):将镜像推送到registry
-
+&lt;br /&gt;
+docker push (image-name):将镜像推送到registry&lt;/p&gt;
 </description>
         <pubDate>Wed, 12 Oct 2016 20:05:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/10/12/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/10/12/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+        <link>http://localhost:4000/2016/10/12/Docker%E5%91%BD%E4%BB%A4/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/10/12/Docker%E5%91%BD%E4%BB%A4/</guid>
         
-        <category>docker</category>
+        <category>Docker</category>
         
         
         <category>工具</category>
