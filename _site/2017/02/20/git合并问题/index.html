@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>JavaScript基本内容 - 余雯的学习博客</title>
+	<title>git合并问题 - 余雯的学习博客</title>
 
 	<link rel="shortcut icon" href="/styles/images/favcion.png">
 	<link rel="icon" href="/styles/images/favcion.png">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/2017/02/15/JavaScript%E5%9F%BA%E6%9C%AC%E5%86%85%E5%AE%B9/">
+	<link rel="canonical" href="/2017/02/20/git%E5%90%88%E5%B9%B6%E9%97%AE%E9%A2%98/">
 	<link rel="alternate" type="application/rss+xml" title="余雯的学习博客" href="/feed.xml">
 	
-	<meta name="keywords" content="JavaScript基本内容, 余雯的学习博客, 前端学习">
+	<meta name="keywords" content="git合并问题, 余雯的学习博客, 前端学习">
 	<meta name="description" content="前端学习">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -90,8 +90,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>JavaScript基本内容</h1>
-		    <p>Post on Feb 15, 2017 by <a href="/about">Yu Wen</a></p>
+		    <h1>git合并问题</h1>
+		    <p>Post on Feb 20, 2017 by <a href="/about">Yu Wen</a></p>
 		-->
 		    <h1>好好学习，天天向上</h1>
     
@@ -102,8 +102,8 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/categories/#前端-ref">前端</a>	/
-    	<a href="/tag/#JS-ref">JS</a>
+    	<a href="/categories/#工具-ref">工具</a>	/
+    	<a href="/tag/#git-ref">git</a>
     
   </div>
 </div>
@@ -262,32 +262,20 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">JavaScript基本内容</h1>
+              <h1 class="post-title">git合并问题</h1>
               <!--
-                <p class="post-meta">Feb 15, 2017</p>
+                <p class="post-meta">Feb 20, 2017</p>
               -->
-              <div class="meta">Posted on <span class="postdate">Feb 15, 2017</span> By <a target="_blank" href="http://localhost:4000">Yu Wen</a></div>
+              <div class="meta">Posted on <span class="postdate">Feb 20, 2017</span> By <a target="_blank" href="http://localhost:4000">Yu Wen</a></div>
               <br />
             </header>
             <article class="post-content">
-              <ul id="markdown-toc">
-  <li><a href="#javascript与ecmascript" id="markdown-toc-javascript与ecmascript">JavaScript与ECMAScript</a></li>
-  <li><a href="#script六大属性" id="markdown-toc-script六大属性">script六大属性</a></li>
-</ul>
-
-<h1 id="javascript与ecmascript">JavaScript与ECMAScript</h1>
-<p>1、由于Netscape Navigator中的JavaScript与IE中的JScript同时存在，为了统一标准，1997年，欧洲计算机制造商协会完成了ECMA-262——一种名为ECMAScript的新脚本语言的标准。ECMAScript是JavaScript的核心，JavaScript由ECMAScript+Dom+Bom组成。
-<br />
-2、JavaScript由ECMAScript+Dom+Bom组成，Dom主要实现对HTML内部元素的操作，Bom主要实现对浏览器的操作。</p>
-
-<h1 id="script六大属性">script六大属性</h1>
-<p>（1）async:表示应该立即下载脚本，不妨碍页面其他操作。<br />
-（2）defer:脚本可以延迟到其他文档完全被解析和显示之后再执行<br />
-（3）charset:表示通过src属性指定的代码的字符集<br />
-（4）src:表示包含要执行代码的外部文件<br />
-（5）language:原来用来表示编写代码使用的脚本语言，已废弃<br />
-（6）type:可以看成是language的替代属性，表示编写代码使用的脚本语言的内容类型</p>
-
+              
+<p>1、使用git merge合并显示Already up-to-date但是并没有更新时，首先利用git checkout切换到该分支。
+<img src="/styles/images/git合并问题/git1.png" alt="/styles/images/git合并问题/git1.png" />
+切换分支时可能会出现以下问题
+<img src="/styles/images/git合并问题/git2.png" alt="/styles/images/git合并问题/git12.png" />
+出现这种问题时可以利用git fetch命令从远程获取最新版本到本地，但并不会自动merge。然后利用git branch查看现在有哪几个分支。接着再切换到想要切换的分支，利用git pull命令拉取最新版本，再切换到原来的分支，将需要提交的文件利用git push提交。利用git status检查当前分支是否还有需要提交的。如果显示working tree clean，则再利用git merge合并想合并的分支，出现冲突进行解决。在解决冲突时如果遇见冲突文件是隐藏文件，利用defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder显示隐藏文件，如果文件无法在本地打开时，将该文件拖到终端，利用vi进入编辑模式进行修改，修改完成后按esc推出编辑模式，输入:wq保存并退出。冲突解决完成后，利用git status查看有哪些修改，按照提示进行git add操作，然后利用git commit -m “merge 分支名”进行合并，提交完成后利用git status查看，然后用git push命令提交。</p>
 
               <div class="text-center" style="margin-top: 10%">
               <a class="btn btn-warning" href="/donate/">

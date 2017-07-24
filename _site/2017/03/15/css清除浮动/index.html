@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>JavaScript基本内容 - 余雯的学习博客</title>
+	<title>css清除浮动 - 余雯的学习博客</title>
 
 	<link rel="shortcut icon" href="/styles/images/favcion.png">
 	<link rel="icon" href="/styles/images/favcion.png">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/2017/02/15/JavaScript%E5%9F%BA%E6%9C%AC%E5%86%85%E5%AE%B9/">
+	<link rel="canonical" href="/2017/03/15/css%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/">
 	<link rel="alternate" type="application/rss+xml" title="余雯的学习博客" href="/feed.xml">
 	
-	<meta name="keywords" content="JavaScript基本内容, 余雯的学习博客, 前端学习">
+	<meta name="keywords" content="css清除浮动, 余雯的学习博客, 前端学习">
 	<meta name="description" content="前端学习">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -90,8 +90,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>JavaScript基本内容</h1>
-		    <p>Post on Feb 15, 2017 by <a href="/about">Yu Wen</a></p>
+		    <h1>css清除浮动</h1>
+		    <p>Post on Mar 15, 2017 by <a href="/about">Yu Wen</a></p>
 		-->
 		    <h1>好好学习，天天向上</h1>
     
@@ -103,7 +103,7 @@
   <div class="container">
   	
     	<a href="/categories/#前端-ref">前端</a>	/
-    	<a href="/tag/#JS-ref">JS</a>
+    	<a href="/tag/#css-ref">css</a>
     
   </div>
 </div>
@@ -262,32 +262,44 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">JavaScript基本内容</h1>
+              <h1 class="post-title">css清除浮动</h1>
               <!--
-                <p class="post-meta">Feb 15, 2017</p>
+                <p class="post-meta">Mar 15, 2017</p>
               -->
-              <div class="meta">Posted on <span class="postdate">Feb 15, 2017</span> By <a target="_blank" href="http://localhost:4000">Yu Wen</a></div>
+              <div class="meta">Posted on <span class="postdate">Mar 15, 2017</span> By <a target="_blank" href="http://localhost:4000">Yu Wen</a></div>
               <br />
             </header>
             <article class="post-content">
               <ul id="markdown-toc">
-  <li><a href="#javascript与ecmascript" id="markdown-toc-javascript与ecmascript">JavaScript与ECMAScript</a></li>
-  <li><a href="#script六大属性" id="markdown-toc-script六大属性">script六大属性</a></li>
+  <li><a href="#浮动" id="markdown-toc-浮动">浮动</a></li>
+  <li><a href="#浮动带来的负面效果" id="markdown-toc-浮动带来的负面效果">浮动带来的负面效果</a></li>
+  <li><a href="#清除浮动的方法" id="markdown-toc-清除浮动的方法">清除浮动的方法</a></li>
 </ul>
 
-<h1 id="javascript与ecmascript">JavaScript与ECMAScript</h1>
-<p>1、由于Netscape Navigator中的JavaScript与IE中的JScript同时存在，为了统一标准，1997年，欧洲计算机制造商协会完成了ECMA-262——一种名为ECMAScript的新脚本语言的标准。ECMAScript是JavaScript的核心，JavaScript由ECMAScript+Dom+Bom组成。
-<br />
-2、JavaScript由ECMAScript+Dom+Bom组成，Dom主要实现对HTML内部元素的操作，Bom主要实现对浏览器的操作。</p>
+<h2 id="浮动">浮动</h2>
+<p>对元素设置浮动，会使其脱离文档流，产生上浮的效果，同时也会对该元素周围的元素产生一定的影响。</p>
 
-<h1 id="script六大属性">script六大属性</h1>
-<p>（1）async:表示应该立即下载脚本，不妨碍页面其他操作。<br />
-（2）defer:脚本可以延迟到其他文档完全被解析和显示之后再执行<br />
-（3）charset:表示通过src属性指定的代码的字符集<br />
-（4）src:表示包含要执行代码的外部文件<br />
-（5）language:原来用来表示编写代码使用的脚本语言，已废弃<br />
-（6）type:可以看成是language的替代属性，表示编写代码使用的脚本语言的内容类型</p>
+<h2 id="浮动带来的负面效果">浮动带来的负面效果</h2>
+<p>由于设置了浮动，元素脱离了文档流，会导致父元素的背景无法撑开，同时各元素块之间可能会存在错位的情况，所以就需要清除浮动。</p>
 
+<p>例：
+<img src="/styles/images/css清除浮动/css清除浮动1.png" alt="/styles/images/css清除浮动/css清除浮动1.png" />
+产生的效果：
+<img src="/styles/images/css清除浮动/css清除浮动2.png" alt="/styles/images/css清除浮动/css清除浮动2.png" /></p>
+
+<p>由于中间两块div分别设置了向左和向右浮动，所以，这两块div脱离了文档流，导致父元素无法被撑开，所以背景颜色无法显示出来。<br />
+清除浮动后期望产生的结果如下：<br />
+<img src="/styles/images/css清除浮动/css清除浮动3.png" alt="/styles/images/css清除浮动/css清除浮动3.png" /></p>
+
+<h2 id="清除浮动的方法">清除浮动的方法</h2>
+<p>一、设置父元素高度
+<img src="/styles/images/css清除浮动/css清除浮动4.png" alt="/styles/images/css清除浮动/css清除浮动4.png" />
+二、设置clear:both
+<img src="/styles/images/css清除浮动/css清除浮动5.png" alt="/styles/images/css清除浮动/css清除浮动5.png" />
+三、在父元素中设置overflow:hidden(或者设置为auto)
+<img src="/styles/images/css清除浮动/css清除浮动5.png" alt="/styles/images/css清除浮动/css清除浮动5.png" />
+四、使用after伪元素
+<img src="/styles/images/css清除浮动/css清除浮动5.png" alt="/styles/images/css清除浮动/css清除浮动5.png" /></p>
 
               <div class="text-center" style="margin-top: 10%">
               <a class="btn btn-warning" href="/donate/">

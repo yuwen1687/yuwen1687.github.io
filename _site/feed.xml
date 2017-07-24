@@ -5,9 +5,240 @@
     <description>前端菜鸟学习经历分享</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Jul 2017 21:20:25 +0800</pubDate>
-    <lastBuildDate>Sun, 23 Jul 2017 21:20:25 +0800</lastBuildDate>
+    <pubDate>Mon, 24 Jul 2017 10:50:54 +0800</pubDate>
+    <lastBuildDate>Mon, 24 Jul 2017 10:50:54 +0800</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>css权重问题</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#html文件引入css样式一般有一下三种比较常见的方式&quot; id=&quot;markdown-toc-html文件引入css样式一般有一下三种比较常见的方式&quot;&gt;html文件引入CSS样式一般有一下三种比较常见的方式：&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#选择器类型&quot; id=&quot;markdown-toc-选择器类型&quot;&gt;选择器类型&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#权重计算规则&quot; id=&quot;markdown-toc-权重计算规则&quot;&gt;权重计算规则&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#important标签&quot; id=&quot;markdown-toc-important标签&quot;&gt;!important标签&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;html文件引入css样式一般有一下三种比较常见的方式&quot;&gt;html文件引入CSS样式一般有一下三种比较常见的方式：&lt;/h2&gt;
+&lt;p&gt;1、最常用的：外部样式，引入样式表，在样式表中编写样式，引入方式如下:&lt;br /&gt; 
+	&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;link href=&quot;。。.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&amp;gt; &lt;/code&gt; 
+&lt;br /&gt; 
+2、內联样式：在Html头部用&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;style&amp;gt;&amp;lt;/style&amp;gt;&lt;/code&gt;包起来，在这里面编写样式&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;style&amp;gt;  
+*{  
+	background:#FFFFFF;  
+	margin-top:0px;  
+}  
+&amp;lt;/style&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;3、行间样式：直接在标签中编写行内样式&lt;br /&gt;
+	&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;div class=&quot;content&quot; style=&quot;background:#FFFFFF&quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;选择器类型&quot;&gt;选择器类型&lt;/h2&gt;
+&lt;p&gt;1、ID选择器：#id&lt;br /&gt;
+2、class选择器：.class&lt;br /&gt;
+3、标签：h1、p&lt;br /&gt;
+4、通配符：*&lt;br /&gt;
+5、属性：[type=”text”]&lt;br /&gt;
+6、伪类： ：hover&lt;br /&gt;
+7、伪元素：  ::first-line&lt;br /&gt;
+8、后代选择器（选择一个标签中所有后代标签里满足条件的标签）： &lt;br /&gt;
+选择器 （空格）选择器{ }&lt;br /&gt;
+9、子代选择器：&lt;br /&gt;
+选择器&amp;gt;选择器{  }&lt;/p&gt;
+
+&lt;h2 id=&quot;权重计算规则&quot;&gt;权重计算规则&lt;/h2&gt;
+&lt;p&gt;1、第一等：代表內联样式，如：style=”“,权值为1000&lt;br /&gt;
+2、第二等：代表ID选择器，如#content，权值为100&lt;br /&gt;
+3、第三等：代表类，伪类和属性选择器，如.content，权值为10&lt;br /&gt;
+4、第四等：代表元素选择器和伪元素选择器，如div,p等，权值为1&lt;br /&gt;
+5、通配符、子选择器、相邻选择器等，如*、&amp;gt;、+等，权值为0&lt;br /&gt;
+6、继承的样式没有权值&lt;/p&gt;
+
+&lt;h2 id=&quot;important标签&quot;&gt;!important标签&lt;/h2&gt;
+&lt;p&gt;!important的作用是提升优先级，加了这句的样式的优先级是最高的（比內联样式的优先级还高）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;  
+  	&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;  
+  	&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;  
+  		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;  
+  		&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;优先级&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;  
+  		&lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;&lt;/span&gt;  
+  			&lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+           		&lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;red&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;!important&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  			  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+  		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt; 
+  	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;  
+  	&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;  
+  		&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;我显示红色&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+  	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;  
+  	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/css权重/css权重1.png&quot; alt=&quot;/styles/images/css权重/css权重1.png&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 10 Apr 2017 16:30:20 +0800</pubDate>
+        <link>http://localhost:4000/2017/04/10/css%E6%9D%83%E9%87%8D%E9%97%AE%E9%A2%98/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/04/10/css%E6%9D%83%E9%87%8D%E9%97%AE%E9%A2%98/</guid>
+        
+        <category>css</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
+    
+      <item>
+        <title>我对BFC的理解</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#bfc触发的条件满足以下任意一条即可&quot; id=&quot;markdown-toc-bfc触发的条件满足以下任意一条即可&quot;&gt;BFC触发的条件（满足以下任意一条即可）&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#bfc布局规则&quot; id=&quot;markdown-toc-bfc布局规则&quot;&gt;BFC布局规则&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#bfc的作用及原理&quot; id=&quot;markdown-toc-bfc的作用及原理&quot;&gt;BFC的作用及原理&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在CSS中，盒子模型是比较常见的一个概念，对于一个元素来说，要设置它的CSS，首先要判断它是行内元素还是块级元素。BFC就是用来格式化块级盒子的。&lt;br /&gt;
+BFC指块级格式化上下文，它是指一个独立的块级渲染区域，只有Block-level Box参与，该区域拥有一套渲染规则来约束块级盒子的布局，且与区域外部无关。&lt;/p&gt;
+
+&lt;h2 id=&quot;bfc触发的条件满足以下任意一条即可&quot;&gt;BFC触发的条件（满足以下任意一条即可）&lt;/h2&gt;
+&lt;p&gt;1、float值不为none&lt;br /&gt;
+2、overflow的值不为visible&lt;br /&gt;
+3、display的值为table-cell、table-caption和inline-block之一&lt;br /&gt;
+4、position的值不为static或者relative&lt;/p&gt;
+
+&lt;h2 id=&quot;bfc布局规则&quot;&gt;BFC布局规则&lt;/h2&gt;
+&lt;p&gt;1、内部的box会在垂直方向，一个接一个的放置&lt;br /&gt;
+2、Box垂直方向的距离由margin决定，相邻的两个box的margin会重叠&lt;br /&gt;
+3、BFC区域不会覆盖浮动元素位置&lt;br /&gt;
+4、margin不会传递给父级元素&lt;br /&gt;
+5、计算BFC高度时，浮动元素也参与计算&lt;br /&gt;
+6、BFC在页面上就是一个独立的容器，容器里的子元素不会影响到外面的元素，外面的元素也不会影响到里面的元素&lt;br /&gt;
+7、每个元素的margin box的左边，与包含块border box的左边相接触，即使存在浮动也是如此。&lt;/p&gt;
+
+&lt;h2 id=&quot;bfc的作用及原理&quot;&gt;BFC的作用及原理&lt;/h2&gt;
+&lt;p&gt;1、自适应两栏布局 
+&lt;img src=&quot;/styles/images/BFC/BFC1.png&quot; alt=&quot;/styles/images/BFC/BFC1.png&quot; /&gt;
+&lt;img src=&quot;/styles/images/BFC/BFC2.png&quot; alt=&quot;/styles/images/BFC/BFC2.png&quot; /&gt; 
+&lt;br /&gt;
+left的style中设置了float:left所以left这一块存在BFC布局，根据BFC布局规则的第七条，每个元素的margin box的左边，与包含块border box的左边相接触，即使浮动也是如此。所以left的左边和content的左边是重合的。&lt;br /&gt;
+要想实现两栏布局，根据BFC规则第三条，BFC区域不会与float box重叠，所以可以触发content这一部分的BFC布局，及加上overflow:hidden&lt;br /&gt;
+代码如下所示：
+&lt;img src=&quot;/styles/images/BFC/BFC3.png&quot; alt=&quot;/styles/images/BFC/BFC3.png&quot; /&gt;
+&lt;img src=&quot;/styles/images/BFC/BFC4.png&quot; alt=&quot;/styles/images/BFC/BFC4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2、清除浮动
+清除浮动之前：
+&lt;img src=&quot;/styles/images/BFC/BFC5.png&quot; alt=&quot;/styles/images/BFC/BFC5.png&quot; /&gt;
+&lt;img src=&quot;/styles/images/BFC/BFC6.png&quot; alt=&quot;/styles/images/BFC/BFC6.png&quot; /&gt;
+&lt;br /&gt;
+除了常见的设置clear:both清除浮动之外，还可以利用BFC布局规则来清除浮动。&lt;br /&gt;
+根据BFC布局规则的第五条，计算BFC高度时，浮动元素的高度也参与计算，所以可以触发conten生成BFC，那么在计算content高度时，content内部的浮动元素left和right也会参与计算。
+&lt;img src=&quot;/styles/images/BFC/BFC7.png&quot; alt=&quot;/styles/images/BFC/BFC6.png&quot; /&gt;
+&lt;img src=&quot;/styles/images/BFC/BFC8.png&quot; alt=&quot;/styles/images/BFC/BFC6.png&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 20 Mar 2017 14:30:20 +0800</pubDate>
+        <link>http://localhost:4000/2017/03/20/%E6%88%91%E5%AF%B9BFC%E7%9A%84%E7%90%86%E8%A7%A3/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/03/20/%E6%88%91%E5%AF%B9BFC%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
+        
+        <category>BFC</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
+    
+      <item>
+        <title>css清除浮动</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#浮动&quot; id=&quot;markdown-toc-浮动&quot;&gt;浮动&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#浮动带来的负面效果&quot; id=&quot;markdown-toc-浮动带来的负面效果&quot;&gt;浮动带来的负面效果&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#清除浮动的方法&quot; id=&quot;markdown-toc-清除浮动的方法&quot;&gt;清除浮动的方法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;浮动&quot;&gt;浮动&lt;/h2&gt;
+&lt;p&gt;对元素设置浮动，会使其脱离文档流，产生上浮的效果，同时也会对该元素周围的元素产生一定的影响。&lt;/p&gt;
+
+&lt;h2 id=&quot;浮动带来的负面效果&quot;&gt;浮动带来的负面效果&lt;/h2&gt;
+&lt;p&gt;由于设置了浮动，元素脱离了文档流，会导致父元素的背景无法撑开，同时各元素块之间可能会存在错位的情况，所以就需要清除浮动。&lt;/p&gt;
+
+&lt;p&gt;例：
+&lt;img src=&quot;/styles/images/css清除浮动/css清除浮动1.png&quot; alt=&quot;/styles/images/css清除浮动/css清除浮动1.png&quot; /&gt;
+产生的效果：
+&lt;img src=&quot;/styles/images/css清除浮动/css清除浮动2.png&quot; alt=&quot;/styles/images/css清除浮动/css清除浮动2.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;由于中间两块div分别设置了向左和向右浮动，所以，这两块div脱离了文档流，导致父元素无法被撑开，所以背景颜色无法显示出来。&lt;br /&gt;
+清除浮动后期望产生的结果如下：&lt;br /&gt;
+&lt;img src=&quot;/styles/images/css清除浮动/css清除浮动3.png&quot; alt=&quot;/styles/images/css清除浮动/css清除浮动3.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;清除浮动的方法&quot;&gt;清除浮动的方法&lt;/h2&gt;
+&lt;p&gt;一、设置父元素高度
+&lt;img src=&quot;/styles/images/css清除浮动/css清除浮动4.png&quot; alt=&quot;/styles/images/css清除浮动/css清除浮动4.png&quot; /&gt;
+二、设置clear:both
+&lt;img src=&quot;/styles/images/css清除浮动/css清除浮动5.png&quot; alt=&quot;/styles/images/css清除浮动/css清除浮动5.png&quot; /&gt;
+三、在父元素中设置overflow:hidden(或者设置为auto)
+&lt;img src=&quot;/styles/images/css清除浮动/css清除浮动5.png&quot; alt=&quot;/styles/images/css清除浮动/css清除浮动5.png&quot; /&gt;
+四、使用after伪元素
+&lt;img src=&quot;/styles/images/css清除浮动/css清除浮动5.png&quot; alt=&quot;/styles/images/css清除浮动/css清除浮动5.png&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 15 Mar 2017 12:05:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/03/15/css%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/03/15/css%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</guid>
+        
+        <category>css</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
+    
+      <item>
+        <title>git合并问题</title>
+        <description>
+&lt;p&gt;1、使用git merge合并显示Already up-to-date但是并没有更新时，首先利用git checkout切换到该分支。
+&lt;img src=&quot;/styles/images/git合并问题/git1.png&quot; alt=&quot;/styles/images/git合并问题/git1.png&quot; /&gt;
+切换分支时可能会出现以下问题
+&lt;img src=&quot;/styles/images/git合并问题/git2.png&quot; alt=&quot;/styles/images/git合并问题/git12.png&quot; /&gt;
+出现这种问题时可以利用git fetch命令从远程获取最新版本到本地，但并不会自动merge。然后利用git branch查看现在有哪几个分支。接着再切换到想要切换的分支，利用git pull命令拉取最新版本，再切换到原来的分支，将需要提交的文件利用git push提交。利用git status检查当前分支是否还有需要提交的。如果显示working tree clean，则再利用git merge合并想合并的分支，出现冲突进行解决。在解决冲突时如果遇见冲突文件是隐藏文件，利用defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder显示隐藏文件，如果文件无法在本地打开时，将该文件拖到终端，利用vi进入编辑模式进行修改，修改完成后按esc推出编辑模式，输入:wq保存并退出。冲突解决完成后，利用git status查看有哪些修改，按照提示进行git add操作，然后利用git commit -m “merge 分支名”进行合并，提交完成后利用git status查看，然后用git push命令提交。&lt;/p&gt;
+</description>
+        <pubDate>Mon, 20 Feb 2017 15:20:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/02/20/git%E5%90%88%E5%B9%B6%E9%97%AE%E9%A2%98/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/20/git%E5%90%88%E5%B9%B6%E9%97%AE%E9%A2%98/</guid>
+        
+        <category>git</category>
+        
+        
+        <category>工具</category>
+        
+      </item>
+    
+      <item>
+        <title>IDEA破解</title>
+        <description>
+&lt;p&gt;下载破解文件网址：magnet:?xt=urn:btih:ED1FA379ECBD34D13CB7D14B0C2B024986A6FC79&amp;amp;dn=IntelliJIDEALicenseServer(v1.4).tar
+解压密码:3415E428&lt;/p&gt;
+
+&lt;p&gt;破解过程如下：
+&lt;img src=&quot;/styles/images/IDEA破解/IDEA1.png&quot; alt=&quot;/styles/images/IDEA破解/IDEA1.png&quot; /&gt;
+&lt;img src=&quot;/styles/images/IDEA破解/IDEA2.png&quot; alt=&quot;/styles/images/IDEA破解/IDEA2.png&quot; /&gt;
+&lt;img src=&quot;/styles/images/IDEA破解/IDEA3.png&quot; alt=&quot;/styles/images/IDEA破解/IDEA3.png&quot; /&gt;
+&lt;img src=&quot;/styles/images/IDEA破解/IDEA4.png&quot; alt=&quot;/styles/images/IDEA破解/IDEA4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后将127.0.0.1:1017复制到服务地址即可破解。&lt;/p&gt;
+</description>
+        <pubDate>Sat, 18 Feb 2017 17:05:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/02/18/IDEA%E7%A0%B4%E8%A7%A3/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/18/IDEA%E7%A0%B4%E8%A7%A3/</guid>
+        
+        <category>IDEA</category>
+        
+        
+        <category>工具</category>
+        
+      </item>
     
       <item>
         <title>JavaScript变量、作用域和内存问题</title>

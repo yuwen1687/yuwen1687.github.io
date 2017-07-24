@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>JavaScript基本内容 - 余雯的学习博客</title>
+	<title>我对BFC的理解 - 余雯的学习博客</title>
 
 	<link rel="shortcut icon" href="/styles/images/favcion.png">
 	<link rel="icon" href="/styles/images/favcion.png">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/2017/02/15/JavaScript%E5%9F%BA%E6%9C%AC%E5%86%85%E5%AE%B9/">
+	<link rel="canonical" href="/2017/03/20/%E6%88%91%E5%AF%B9BFC%E7%9A%84%E7%90%86%E8%A7%A3/">
 	<link rel="alternate" type="application/rss+xml" title="余雯的学习博客" href="/feed.xml">
 	
-	<meta name="keywords" content="JavaScript基本内容, 余雯的学习博客, 前端学习">
+	<meta name="keywords" content="我对BFC的理解, 余雯的学习博客, 前端学习">
 	<meta name="description" content="前端学习">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -90,8 +90,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>JavaScript基本内容</h1>
-		    <p>Post on Feb 15, 2017 by <a href="/about">Yu Wen</a></p>
+		    <h1>我对BFC的理解</h1>
+		    <p>Post on Mar 20, 2017 by <a href="/about">Yu Wen</a></p>
 		-->
 		    <h1>好好学习，天天向上</h1>
     
@@ -103,7 +103,7 @@
   <div class="container">
   	
     	<a href="/categories/#前端-ref">前端</a>	/
-    	<a href="/tag/#JS-ref">JS</a>
+    	<a href="/tag/#BFC-ref">BFC</a>
     
   </div>
 </div>
@@ -262,31 +262,58 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">JavaScript基本内容</h1>
+              <h1 class="post-title">我对BFC的理解</h1>
               <!--
-                <p class="post-meta">Feb 15, 2017</p>
+                <p class="post-meta">Mar 20, 2017</p>
               -->
-              <div class="meta">Posted on <span class="postdate">Feb 15, 2017</span> By <a target="_blank" href="http://localhost:4000">Yu Wen</a></div>
+              <div class="meta">Posted on <span class="postdate">Mar 20, 2017</span> By <a target="_blank" href="http://localhost:4000">Yu Wen</a></div>
               <br />
             </header>
             <article class="post-content">
               <ul id="markdown-toc">
-  <li><a href="#javascript与ecmascript" id="markdown-toc-javascript与ecmascript">JavaScript与ECMAScript</a></li>
-  <li><a href="#script六大属性" id="markdown-toc-script六大属性">script六大属性</a></li>
+  <li><a href="#bfc触发的条件满足以下任意一条即可" id="markdown-toc-bfc触发的条件满足以下任意一条即可">BFC触发的条件（满足以下任意一条即可）</a></li>
+  <li><a href="#bfc布局规则" id="markdown-toc-bfc布局规则">BFC布局规则</a></li>
+  <li><a href="#bfc的作用及原理" id="markdown-toc-bfc的作用及原理">BFC的作用及原理</a></li>
 </ul>
 
-<h1 id="javascript与ecmascript">JavaScript与ECMAScript</h1>
-<p>1、由于Netscape Navigator中的JavaScript与IE中的JScript同时存在，为了统一标准，1997年，欧洲计算机制造商协会完成了ECMA-262——一种名为ECMAScript的新脚本语言的标准。ECMAScript是JavaScript的核心，JavaScript由ECMAScript+Dom+Bom组成。
-<br />
-2、JavaScript由ECMAScript+Dom+Bom组成，Dom主要实现对HTML内部元素的操作，Bom主要实现对浏览器的操作。</p>
+<p>在CSS中，盒子模型是比较常见的一个概念，对于一个元素来说，要设置它的CSS，首先要判断它是行内元素还是块级元素。BFC就是用来格式化块级盒子的。<br />
+BFC指块级格式化上下文，它是指一个独立的块级渲染区域，只有Block-level Box参与，该区域拥有一套渲染规则来约束块级盒子的布局，且与区域外部无关。</p>
 
-<h1 id="script六大属性">script六大属性</h1>
-<p>（1）async:表示应该立即下载脚本，不妨碍页面其他操作。<br />
-（2）defer:脚本可以延迟到其他文档完全被解析和显示之后再执行<br />
-（3）charset:表示通过src属性指定的代码的字符集<br />
-（4）src:表示包含要执行代码的外部文件<br />
-（5）language:原来用来表示编写代码使用的脚本语言，已废弃<br />
-（6）type:可以看成是language的替代属性，表示编写代码使用的脚本语言的内容类型</p>
+<h2 id="bfc触发的条件满足以下任意一条即可">BFC触发的条件（满足以下任意一条即可）</h2>
+<p>1、float值不为none<br />
+2、overflow的值不为visible<br />
+3、display的值为table-cell、table-caption和inline-block之一<br />
+4、position的值不为static或者relative</p>
+
+<h2 id="bfc布局规则">BFC布局规则</h2>
+<p>1、内部的box会在垂直方向，一个接一个的放置<br />
+2、Box垂直方向的距离由margin决定，相邻的两个box的margin会重叠<br />
+3、BFC区域不会覆盖浮动元素位置<br />
+4、margin不会传递给父级元素<br />
+5、计算BFC高度时，浮动元素也参与计算<br />
+6、BFC在页面上就是一个独立的容器，容器里的子元素不会影响到外面的元素，外面的元素也不会影响到里面的元素<br />
+7、每个元素的margin box的左边，与包含块border box的左边相接触，即使存在浮动也是如此。</p>
+
+<h2 id="bfc的作用及原理">BFC的作用及原理</h2>
+<p>1、自适应两栏布局 
+<img src="/styles/images/BFC/BFC1.png" alt="/styles/images/BFC/BFC1.png" />
+<img src="/styles/images/BFC/BFC2.png" alt="/styles/images/BFC/BFC2.png" /> 
+<br />
+left的style中设置了float:left所以left这一块存在BFC布局，根据BFC布局规则的第七条，每个元素的margin box的左边，与包含块border box的左边相接触，即使浮动也是如此。所以left的左边和content的左边是重合的。<br />
+要想实现两栏布局，根据BFC规则第三条，BFC区域不会与float box重叠，所以可以触发content这一部分的BFC布局，及加上overflow:hidden<br />
+代码如下所示：
+<img src="/styles/images/BFC/BFC3.png" alt="/styles/images/BFC/BFC3.png" />
+<img src="/styles/images/BFC/BFC4.png" alt="/styles/images/BFC/BFC4.png" /></p>
+
+<p>2、清除浮动
+清除浮动之前：
+<img src="/styles/images/BFC/BFC5.png" alt="/styles/images/BFC/BFC5.png" />
+<img src="/styles/images/BFC/BFC6.png" alt="/styles/images/BFC/BFC6.png" />
+<br />
+除了常见的设置clear:both清除浮动之外，还可以利用BFC布局规则来清除浮动。<br />
+根据BFC布局规则的第五条，计算BFC高度时，浮动元素的高度也参与计算，所以可以触发conten生成BFC，那么在计算content高度时，content内部的浮动元素left和right也会参与计算。
+<img src="/styles/images/BFC/BFC7.png" alt="/styles/images/BFC/BFC6.png" />
+<img src="/styles/images/BFC/BFC8.png" alt="/styles/images/BFC/BFC6.png" /></p>
 
 
               <div class="text-center" style="margin-top: 10%">
