@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>block、inline、inline-block的区别 - 余雯的学习博客</title>
+
+	<link rel="shortcut icon" href="/styles/images/favcion.png">
+	<link rel="icon" href="/styles/images/favcion.png">
+
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/styles/css/syntax.css">
+	<link rel="canonical" href="/2017/07/05/block-inline-inline-block%E7%9A%84%E5%8C%BA%E5%88%AB/">
+	<link rel="alternate" type="application/rss+xml" title="余雯的学习博客" href="/feed.xml">
+	
+	<meta name="keywords" content="block、inline、inline-block的区别, 余雯的学习博客, 前端学习">
+	<meta name="description" content="前端学习">
+
+	<script src="/styles/js/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  	<![endif]-->
+  	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?94be4b0f9fc5d94cc0d0415ea6761ae9";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+  	<style type="text/css">
+	  	.docs-content{
+	  		margin-bottom: 10px;
+	  	}
+  	</style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/categories/">文章分类</a>
+        </li>
+        <li>
+          <a href="/tag">文章标签</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></a>
+        </li>
+        <li>
+          <a href="/donate/"><strong>打赏</strong></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a rel="nofollow" target="_blank" href="https://github.com/yuwen1687/">Github</a></li>
+            <li><a rel="nofollow" href="/books">我的书单</a></li>
+            <li><a rel="nofollow" href="/reference">推荐网页</a></li>
+            <li class="divider"></li>
+            <li><a rel="nofollow" target="_blank" href="https://github.com/yuwen1687/yuwen1687.github.io">本项目</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header" id="content">
+  <div class="container">
+  	
+  		<!--
+		    <h1>block、inline、inline-block的区别</h1>
+		    <p>Post on Jul 05, 2017 by <a href="/about">Yu Wen</a></p>
+		-->
+		    <h1>好好学习，天天向上</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/categories/#前端-ref">前端</a>	/
+    	<a href="/tag/#block-ref">block</a>
+    
+  </div>
+</div>
+
+    
+
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>文章目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2017">2017</a>
+          <ul class="nav">
+            <li><a href="#month_2017_July">July</a></li>
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2016">2016</a>
+            <ul class="nav">
+              <li><a href="#month_2016_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+  <div style="height: 200px;width: 200px;">
+    <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5ytn1ssq6za&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"> 
+    </script>
+  </div>
+</div>
+
+ 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">block、inline、inline-block的区别</h1>
+              <!--
+                <p class="post-meta">Jul 5, 2017</p>
+              -->
+              <div class="meta">Posted on <span class="postdate">Jul 05, 2017</span> By <a target="_blank" href="http://localhost:4000">Yu Wen</a></div>
+              <br />
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#displayblock" id="markdown-toc-displayblock">display:block</a></li>
+  <li><a href="#displayinline" id="markdown-toc-displayinline">display:inline</a></li>
+  <li><a href="#displayinline-block" id="markdown-toc-displayinline-block">display:inline-block</a></li>
+</ul>
+
+<p>之前一直不太清楚这三种属性值的具体区别，只是简单的认为块级元素的display值为block，所以每个块级元素都会自动换行，要想取消自动换行可以将display的值设置成inline就可以取消自动换行，但是没有仔细了解过它们三者，所以现在研究了一下。</p>
+
+<h3 id="displayblock">display:block</h3>
+<p>1、block元素会独占一行，宽度自动填满其父元素宽度。<br />
+2、block元素可以设置width、height属性，块级元素即使设置了宽度仍然是独占一行。<br />
+3、block元素可以设置margin和padding属性。</p>
+
+<h3 id="displayinline">display:inline</h3>
+<p>1、inline元素不会独占一行，一行排不下才会换新行，其宽度随内容的变化而变化。<br />
+2、inline元素设置width、height属性无效。<br />
+3、inline元素margin和padding水平方向能产生效果，竖直方向不会产生边距效果。</p>
+
+<h3 id="displayinline-block">display:inline-block</h3>
+<p>将对象呈现为inline对象，但对象的内容作为block对象呈现，之后的內联对象会被排列在同一行内，将一个元素设置inline-block属性值，使其既具有block的宽度、高度特
+性，又具有inline的同行特性。</p>
+
+<p>常用块级元素：<br />
+div, p ,form, ul, ol, li, ol, dl, form, address, fieldset, hr, menu, table
+<br />
+常用行内元素：<br />
+span, strong, em, br, img, input, label,select,textarea,cite</p>
+
+              <div class="text-center" style="margin-top: 10%">
+              <a class="btn btn-warning" href="/donate/">
+                 <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+              </a>
+            </div>
+            </article>
+        </div>
+      </div>
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+             
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container">
+		<p style="text-align: center;" class="copyright">Copyright &copy; 2016-2017 <a href=""><code>Yu Wen</code></a>.</p>
+		<p style="text-align: center;">Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="http://lesscss.cn/">Less</a>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  </body>
+</html>

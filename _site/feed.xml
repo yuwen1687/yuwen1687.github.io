@@ -5,9 +5,713 @@
     <description>前端菜鸟学习经历分享</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 24 Jul 2017 14:38:37 +0800</pubDate>
-    <lastBuildDate>Mon, 24 Jul 2017 14:38:37 +0800</lastBuildDate>
+    <pubDate>Thu, 27 Jul 2017 20:46:42 +0800</pubDate>
+    <lastBuildDate>Thu, 27 Jul 2017 20:46:42 +0800</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>block、inline、inline-block的区别</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#displayblock&quot; id=&quot;markdown-toc-displayblock&quot;&gt;display:block&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#displayinline&quot; id=&quot;markdown-toc-displayinline&quot;&gt;display:inline&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#displayinline-block&quot; id=&quot;markdown-toc-displayinline-block&quot;&gt;display:inline-block&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;之前一直不太清楚这三种属性值的具体区别，只是简单的认为块级元素的display值为block，所以每个块级元素都会自动换行，要想取消自动换行可以将display的值设置成inline就可以取消自动换行，但是没有仔细了解过它们三者，所以现在研究了一下。&lt;/p&gt;
+
+&lt;h3 id=&quot;displayblock&quot;&gt;display:block&lt;/h3&gt;
+&lt;p&gt;1、block元素会独占一行，宽度自动填满其父元素宽度。&lt;br /&gt;
+2、block元素可以设置width、height属性，块级元素即使设置了宽度仍然是独占一行。&lt;br /&gt;
+3、block元素可以设置margin和padding属性。&lt;/p&gt;
+
+&lt;h3 id=&quot;displayinline&quot;&gt;display:inline&lt;/h3&gt;
+&lt;p&gt;1、inline元素不会独占一行，一行排不下才会换新行，其宽度随内容的变化而变化。&lt;br /&gt;
+2、inline元素设置width、height属性无效。&lt;br /&gt;
+3、inline元素margin和padding水平方向能产生效果，竖直方向不会产生边距效果。&lt;/p&gt;
+
+&lt;h3 id=&quot;displayinline-block&quot;&gt;display:inline-block&lt;/h3&gt;
+&lt;p&gt;将对象呈现为inline对象，但对象的内容作为block对象呈现，之后的內联对象会被排列在同一行内，将一个元素设置inline-block属性值，使其既具有block的宽度、高度特
+性，又具有inline的同行特性。&lt;/p&gt;
+
+&lt;p&gt;常用块级元素：&lt;br /&gt;
+div, p ,form, ul, ol, li, ol, dl, form, address, fieldset, hr, menu, table
+&lt;br /&gt;
+常用行内元素：&lt;br /&gt;
+span, strong, em, br, img, input, label,select,textarea,cite&lt;/p&gt;
+</description>
+        <pubDate>Wed, 05 Jul 2017 19:05:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/07/05/block-inline-inline-block%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/07/05/block-inline-inline-block%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+        
+        <category>block</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
+    
+      <item>
+        <title>Flex布局实例</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#单项目&quot; id=&quot;markdown-toc-单项目&quot;&gt;单项目&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#双项目&quot; id=&quot;markdown-toc-双项目&quot;&gt;双项目&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#三项目&quot; id=&quot;markdown-toc-三项目&quot;&gt;三项目&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#四项目&quot; id=&quot;markdown-toc-四项目&quot;&gt;四项目&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#五项目&quot; id=&quot;markdown-toc-五项目&quot;&gt;五项目&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#六项目&quot; id=&quot;markdown-toc-六项目&quot;&gt;六项目&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;根据之前看的flex布局的语法，结合网上的实例教程，写了几个骰子的布局（实例来自阮一峰的网络日志Flex布局教程:实例篇）。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div class=&quot;box&quot;&amp;gt;
+  &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在上面的代码中，div元素（代表骰子的一个面）是Flex容器，span元素（代表一个点）是Flex项目，如果有多个项目，就要添加多个span元素。&lt;/p&gt;
+
+&lt;h3 id=&quot;单项目&quot;&gt;单项目&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex2.png&quot; alt=&quot;flex2&quot; title=&quot;单项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex3.png&quot; alt=&quot;flex3&quot; title=&quot;单项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	justify-content:center;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex4.png&quot; alt=&quot;flex4&quot; title=&quot;单项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	justify-content:flex-end;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex5.png&quot; alt=&quot;flex5&quot; title=&quot;单项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	align-items:center;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex6.png&quot; alt=&quot;flex6&quot; title=&quot;单项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex7.png&quot; alt=&quot;flex7&quot; title=&quot;单项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	align-items:flex-end:
+	justify-content:center;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex8.png&quot; alt=&quot;flex8&quot; title=&quot;单项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	align-items:flex-end;
+	justify-content:flex-end;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;双项目&quot;&gt;双项目&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex9.png&quot; alt=&quot;flex9&quot; title=&quot;双项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	justify-content:space-between;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex10.png&quot; alt=&quot;flex10&quot; title=&quot;双项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex11.png&quot; alt=&quot;flex11&quot; title=&quot;双项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	align-items:center;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex12.png&quot; alt=&quot;flex12&quot; title=&quot;双项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	align-items:flex-end;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex13.png&quot; alt=&quot;flex13&quot; title=&quot;双项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+}
+.item:nth-child(2){
+	align-self:center;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex14.png&quot; alt=&quot;flex14&quot; title=&quot;双项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	justify-content:space-between;
+}
+.item:nth-child(2){
+	align-self:flex-end;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;三项目&quot;&gt;三项目&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex15.png&quot; alt=&quot;flex15&quot; title=&quot;三项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+}
+.item:nth-child(2){
+	align-self:center;
+}
+.item:nth-child(3){
+	align-self:flex-end;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;四项目&quot;&gt;四项目&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex16.png&quot; alt=&quot;flex16&quot; title=&quot;四项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	flex-wrap;wrap;
+	justify-content:flex-end;
+	align-content:space-between;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex17.png&quot; alt=&quot;flex17&quot; title=&quot;四项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div class=&quot;box&quot;&amp;gt;
+  &amp;lt;div class=&quot;column&quot;&amp;gt;
+     &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+     &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&quot;column&quot;&amp;gt;
+     &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+     &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+.box{
+	display:flex;
+	flex-wrap:wrap;
+	align-content:space-between;
+}
+.column{
+	flex-basis:100%;
+	display:flex;
+	justify-content:space-between;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;五项目&quot;&gt;五项目&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex18.png&quot; alt=&quot;flex18&quot; title=&quot;五项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div class=&quot;box&quot;&amp;gt;
+  &amp;lt;div class=&quot;column&quot;&amp;gt;
+    &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&quot;column&quot;&amp;gt;
+    &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&quot;column&quot;&amp;gt;
+    &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+.box{
+	display:flex;
+	justify-content:space-between;
+}
+.column{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+}
+.column:nth-of-type(2){
+	justify-content:center;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;六项目&quot;&gt;六项目&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex19.png&quot; alt=&quot;flex19&quot; title=&quot;六项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	flex-wrap:wrap;
+	align-content:space-between;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex20.png&quot; alt=&quot;flex20&quot; title=&quot;六项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	flex-wrap:wrap;
+	flex-direction:column;
+	align-content:space-between;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex21.png&quot; alt=&quot;flex21&quot; title=&quot;六项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div class=&quot;box&quot;&amp;gt;
+  &amp;lt;div class=&quot;row&quot;&amp;gt;
+    &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&quot;row&quot;&amp;gt;
+    &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&quot;row&quot;&amp;gt;
+    &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;item&quot;&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+.box{
+	display:flex;
+	flex-wrap:wrap;
+}
+.row{
+	flex-basis:100%;
+	display:flex;
+}
+.row:nth-child(2){
+	justify-content:center;
+}
+.row:nth-child(3){
+	justify-content:space-between;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/flex布局实例/flex22.png&quot; alt=&quot;flex22&quot; title=&quot;九项目&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display:flex;
+	flex-wrap:wrap;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;完整实例: &lt;a href=&quot;https://github.com/yuwen1687/study-demo/tree/master/flex%E5%B8%83%E5%B1%80&quot;&gt;骰子布局&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 14 Jun 2017 17:05:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/06/14/Flex%E5%B8%83%E5%B1%80%E5%AE%9E%E4%BE%8B/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/06/14/Flex%E5%B8%83%E5%B1%80%E5%AE%9E%E4%BE%8B/</guid>
+        
+        <category>flex</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
+    
+      <item>
+        <title>Flex布局</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#一flex布局基本概念&quot; id=&quot;markdown-toc-一flex布局基本概念&quot;&gt;一、Flex布局基本概念&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#二容器的属性&quot; id=&quot;markdown-toc-二容器的属性&quot;&gt;二、容器的属性&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1flex-direction属性&quot; id=&quot;markdown-toc-1flex-direction属性&quot;&gt;1、flex-direction属性&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2flex-wrap属性&quot; id=&quot;markdown-toc-2flex-wrap属性&quot;&gt;2、flex-wrap属性&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#3flex-flow属性&quot; id=&quot;markdown-toc-3flex-flow属性&quot;&gt;3、flex-flow属性&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#4justify-content属性&quot; id=&quot;markdown-toc-4justify-content属性&quot;&gt;4、justify-content属性&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#5align-items属性&quot; id=&quot;markdown-toc-5align-items属性&quot;&gt;5、align-items属性&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#6align-content属性&quot; id=&quot;markdown-toc-6align-content属性&quot;&gt;6、align-content属性&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#三项目的属性&quot; id=&quot;markdown-toc-三项目的属性&quot;&gt;三、项目的属性&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1order属性&quot; id=&quot;markdown-toc-1order属性&quot;&gt;1、order属性&lt;br /&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2flex-grow属性&quot; id=&quot;markdown-toc-2flex-grow属性&quot;&gt;2、flex-grow属性&lt;br /&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#3flex-shrink属性&quot; id=&quot;markdown-toc-3flex-shrink属性&quot;&gt;3、flex-shrink属性&lt;br /&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#4flex-basis属性&quot; id=&quot;markdown-toc-4flex-basis属性&quot;&gt;4、flex-basis属性&lt;br /&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#5flex属性&quot; id=&quot;markdown-toc-5flex属性&quot;&gt;5、flex属性&lt;br /&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#6align-self属性&quot; id=&quot;markdown-toc-6align-self属性&quot;&gt;6、align-self属性&lt;br /&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;一flex布局基本概念&quot;&gt;一、Flex布局基本概念&lt;/h2&gt;
+&lt;p&gt;Flex是Flexible Box的缩写，是弹性布局的意思，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为Flex布局。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{  
+  display: flex;  
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;任何行内元素也可使用Flex布局&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+  display: inline-flex;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Webkit内核的浏览器，必须加上-webkit前缀&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	display: -webkit-flex;/*Safari*/
+	display:flex;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;设为Flex布局后，子元素的float、clear和vertical-align属性将失效。&lt;br /&gt;
+采用Flex布局的元素称为Flex容器，简称容器。
+&lt;img src=&quot;/styles/images/Flex布局/flex1.png&quot; alt=&quot;/styles/images/Flex布局/flex1.png&quot; /&gt;
+&lt;br /&gt;
+容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束的位置叫做cross end。&lt;br /&gt;
+项目默认沿主轴排列，单个项目占据的主轴空间叫做main size，占据的交叉空间叫做cross size。&lt;/p&gt;
+
+&lt;h2 id=&quot;二容器的属性&quot;&gt;二、容器的属性&lt;/h2&gt;
+&lt;h3 id=&quot;1flex-direction属性&quot;&gt;1、flex-direction属性&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	flex-direction:row;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;row为默认值，代表主轴为水平方向，起点在左端。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	flex-direction:row-reverse;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;row-reverse代表主轴为水平方向，起点在右端。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	flex-direction:column;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;column代表主轴为垂直方向，起点在上沿。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	flex-direction:column-reverse;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;column-reverse代表主轴为垂直方向，起点在下沿。
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2flex-wrap属性&quot;&gt;2、flex-wrap属性&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+默认情况下，项目都排在一条线（轴线）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	flex-wrap:nowrap;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;nowrap为默认值，代表不换行。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	flex-wrap:wrap;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;wrap代表换行，第一行在上方。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	flex-wrap:wrap-reverse;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;wrap-reverse代表换行，第一行在下方。
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;3flex-flow属性&quot;&gt;3、flex-flow属性&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	flex-flow:&amp;lt;flex-direction&amp;gt; || &amp;lt;flex-wrap&amp;gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;4justify-content属性&quot;&gt;4、justify-content属性&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+该属性定义了项目在主轴上的对齐方式。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	justify-content: flex-start;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;flex-start为默认值，代表左对齐。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	justify-content: flex-end;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;flex-end代表右对齐。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	justify-content: center;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;center代表居中。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	justify-content: space-between;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;space-between代表两端对齐，项目之间的间隔都相等。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	justify-content: flex-around;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;flex-around代表每个项目两侧的间隔相等，所以，项目之间的间隔比项目与边框的间隔大一倍。
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;5align-items属性&quot;&gt;5、align-items属性&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+该属性定义项目在交叉轴上如何对齐。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	align-items:flex-start;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;flex-start代表交叉轴的起点对齐。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	align-items:flex-end;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;flex-end代表交叉轴的终点对齐。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	align-items:center;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;center代表交叉轴的中点对齐。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	align-items:baseline;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;baseline代表项目的第一行文字与基线对齐。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	align-items:stretch;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;stretch为默认值，如果项目未设置高度或设为auto，将占满整个容器的高度。
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6align-content属性&quot;&gt;6、align-content属性&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+该属性定义了多根轴线的对齐方式，如果项目只有一根轴线，该属性不起作用。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	align-conten:flex-start;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;flex-start代表与交叉轴的起点对齐。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	align-conten:flex-end;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;flex-end代表与交叉轴的终点对齐。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	align-conten:center;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;center代表与交叉轴的中点对齐。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	align-conten:space-between;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;space-between代表与交叉轴两端对齐，轴线之间的间隔平均分布。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	align-conten:space-around;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;space-around代表每根轴线两侧的间隔都相等，所以轴线之间的间隔比轴线与边框的间隔大一倍。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.box{
+	align-conte:stretch;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;stretch为默认值，代表轴线占满整个交叉轴。
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;三项目的属性&quot;&gt;三、项目的属性&lt;/h2&gt;
+&lt;p&gt;设为Flex布局的容器，它的所有子元素自动称为容器成员，称为flex项目，简称项目。&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1order属性&quot;&gt;1、order属性&lt;br /&gt;&lt;/h3&gt;
+&lt;p&gt;该属性定义项目的排列顺序，数值越小，排列越靠前，默认为0。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.item {
+	order:&amp;lt;integer&amp;gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;2flex-grow属性&quot;&gt;2、flex-grow属性&lt;br /&gt;&lt;/h3&gt;
+&lt;p&gt;该属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。&lt;br /&gt;
+如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他都为1，则前者占据的剩余空间比其它项多一倍。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.item{
+	flex-grow:&amp;lt;number&amp;gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;3flex-shrink属性&quot;&gt;3、flex-shrink属性&lt;br /&gt;&lt;/h3&gt;
+&lt;p&gt;该属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。&lt;br /&gt;
+如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小，如果一个项目的flex-shrink属性为0，其他都为1，则空间不足时，前者不缩小。（负值对该属性无效）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.item{
+	flex-shrink:&amp;lt;number&amp;gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;4flex-basis属性&quot;&gt;4、flex-basis属性&lt;br /&gt;&lt;/h3&gt;
+&lt;p&gt;该属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间，它的默认值为auto，即项目的本来大小。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.item{
+	flex-basis: &amp;lt;length&amp;gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;5flex属性&quot;&gt;5、flex属性&lt;br /&gt;&lt;/h3&gt;
+&lt;p&gt;该属性允许项目有与其他项目不一样的对齐方式，可覆盖align-items属性，默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.item{
+	flex:&amp;lt;'flex-grow'&amp;gt; &amp;lt;'flex-shrink'&amp;gt; &amp;lt;'flex-basis'&amp;gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;6align-self属性&quot;&gt;6、align-self属性&lt;br /&gt;&lt;/h3&gt;
+&lt;p&gt;该属性允许项目有与其他项目不一样的对齐方式，可覆盖align-items属性，默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.item {
+	align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;（文章内容引用阮一峰的网络日志Flex布局教程:语法篇）&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 12 Jun 2017 15:05:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/06/12/Flex%E5%B8%83%E5%B1%80/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/06/12/Flex%E5%B8%83%E5%B1%80/</guid>
+        
+        <category>flex</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
     
       <item>
         <title>css权重问题</title>
@@ -247,7 +951,7 @@ left的style中设置了float:left所以left这一块存在BFC布局，根据BFC
   &lt;li&gt;&lt;a href=&quot;#预加载变量提升&quot; id=&quot;markdown-toc-预加载变量提升&quot;&gt;预加载、变量提升&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;基本内容&quot;&gt;基本内容&lt;/h1&gt;
+&lt;h2 id=&quot;基本内容&quot;&gt;基本内容&lt;/h2&gt;
 
 &lt;p&gt;1、ECMAScript变量包含两种类型的值：基本类型值和引用类型值。&lt;br /&gt;
 2、JavaScript变量为松散类型，松散类型变量的特点就是定义的时候不给它指定类型，变量在运行的时候可以随便改变数据类型。&lt;br /&gt;
@@ -302,7 +1006,7 @@ console.log(&quot;color is now &quot;+ color);
 &lt;p&gt;&lt;br /&gt;
 在执行环境中，内部环境可以通过作用域链访问外部环境的变量和函数，但是外部环境不能访问内部环境的变量和函数，每个环境只能向上搜索作用域链。&lt;/p&gt;
 
-&lt;h1 id=&quot;预加载变量提升&quot;&gt;预加载、变量提升&lt;/h1&gt;
+&lt;h2 id=&quot;预加载变量提升&quot;&gt;预加载、变量提升&lt;/h2&gt;
 &lt;p&gt;javascript语言的松散类型的特点以及运行时候随时更改变量类型的特点，很多程序员会认为javascript变量的定义是在运行期进行的，更有甚者有些人认为javascript代码只有运行期，其实这种理解是错误的，javascript代码在运行前还有一个过程就是：预加载，预加载的目的是要事先构造运行环境例如全局环境，函数运行环境，还要构造作用域链，而环境和作用域的构造的核心内容就是指定好变量属于哪个范畴，因此在javascript语言里变量的定义是在预加载完成而非在运行时期。&lt;br /&gt;
 JavaScript引擎的工作方式是先解析代码，获取所有被声明的变量，然后再一行一行的运行，这造成的结果，就是所有变量的声明语句都会被提升到代码的头部，这就叫做变量提升。
 例:&lt;/p&gt;
@@ -360,73 +1064,6 @@ test();
         
         
         <category>前端</category>
-        
-      </item>
-    
-      <item>
-        <title>mac命令</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#显示隐藏文件命令&quot; id=&quot;markdown-toc-显示隐藏文件命令&quot;&gt;显示隐藏文件命令：&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#取消显示隐藏文件命令&quot; id=&quot;markdown-toc-取消显示隐藏文件命令&quot;&gt;取消显示隐藏文件命令：&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;显示隐藏文件命令&quot;&gt;显示隐藏文件命令：&lt;/h2&gt;
-
-&lt;p&gt;defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder&lt;/p&gt;
-
-&lt;h2 id=&quot;取消显示隐藏文件命令&quot;&gt;取消显示隐藏文件命令：&lt;/h2&gt;
-
-&lt;p&gt;defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder&lt;/p&gt;
-</description>
-        <pubDate>Fri, 10 Feb 2017 20:05:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/10/mac%E5%91%BD%E4%BB%A4/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/10/mac%E5%91%BD%E4%BB%A4/</guid>
-        
-        <category>mac</category>
-        
-        
-        <category>工具</category>
-        
-      </item>
-    
-      <item>
-        <title>Docker命令</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#docker常用命令&quot; id=&quot;markdown-toc-docker常用命令&quot;&gt;Docker常用命令：&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;docker常用命令&quot;&gt;Docker常用命令：&lt;/h2&gt;
-
-&lt;p&gt;docker info：检查Docker安装是否正确
-&lt;br /&gt;
-docker logs :查看job的当前状态
-&lt;br /&gt;
-docker help:查看Docker的所有命令
-&lt;br /&gt;
-docker stop：停止当前容器
-&lt;br /&gt;
-docker restart:重新启动该容器
-&lt;br /&gt;
-docker rm:移除容器（移除之前需先将该容器停止）
-&lt;br /&gt;
-docker commit:将容器的状态保存为镜像
-&lt;br /&gt;
-docker images:查看所有镜像的列表
-&lt;br /&gt;
-docker search (image-name):查看registry中的镜像
-&lt;br /&gt;
-docker history (image-name):查看镜像的历史版本
-&lt;br /&gt;
-docker push (image-name):将镜像推送到registry&lt;/p&gt;
-</description>
-        <pubDate>Wed, 12 Oct 2016 20:05:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/10/12/Docker%E5%91%BD%E4%BB%A4/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/10/12/Docker%E5%91%BD%E4%BB%A4/</guid>
-        
-        <category>Docker</category>
-        
-        
-        <category>工具</category>
         
       </item>
     

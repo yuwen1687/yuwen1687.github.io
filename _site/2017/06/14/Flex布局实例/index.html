@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Flex布局实例 - 余雯的学习博客</title>
+
+	<link rel="shortcut icon" href="/styles/images/favcion.png">
+	<link rel="icon" href="/styles/images/favcion.png">
+
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/styles/css/syntax.css">
+	<link rel="canonical" href="/2017/06/14/Flex%E5%B8%83%E5%B1%80%E5%AE%9E%E4%BE%8B/">
+	<link rel="alternate" type="application/rss+xml" title="余雯的学习博客" href="/feed.xml">
+	
+	<meta name="keywords" content="Flex布局实例, 余雯的学习博客, 前端学习">
+	<meta name="description" content="前端学习">
+
+	<script src="/styles/js/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  	<![endif]-->
+  	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?94be4b0f9fc5d94cc0d0415ea6761ae9";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+  	<style type="text/css">
+	  	.docs-content{
+	  		margin-bottom: 10px;
+	  	}
+  	</style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/categories/">文章分类</a>
+        </li>
+        <li>
+          <a href="/tag">文章标签</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></a>
+        </li>
+        <li>
+          <a href="/donate/"><strong>打赏</strong></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a rel="nofollow" target="_blank" href="https://github.com/yuwen1687/">Github</a></li>
+            <li><a rel="nofollow" href="/books">我的书单</a></li>
+            <li><a rel="nofollow" href="/reference">推荐网页</a></li>
+            <li class="divider"></li>
+            <li><a rel="nofollow" target="_blank" href="https://github.com/yuwen1687/yuwen1687.github.io">本项目</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header" id="content">
+  <div class="container">
+  	
+  		<!--
+		    <h1>Flex布局实例</h1>
+		    <p>Post on Jun 14, 2017 by <a href="/about">Yu Wen</a></p>
+		-->
+		    <h1>好好学习，天天向上</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/categories/#前端-ref">前端</a>	/
+    	<a href="/tag/#flex-ref">flex</a>
+    
+  </div>
+</div>
+
+    
+
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>文章目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2017">2017</a>
+          <ul class="nav">
+            <li><a href="#month_2017_July">July</a></li>
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2016">2016</a>
+            <ul class="nav">
+              <li><a href="#month_2016_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+  <div style="height: 200px;width: 200px;">
+    <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5ytn1ssq6za&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"> 
+    </script>
+  </div>
+</div>
+
+ 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">Flex布局实例</h1>
+              <!--
+                <p class="post-meta">Jun 14, 2017</p>
+              -->
+              <div class="meta">Posted on <span class="postdate">Jun 14, 2017</span> By <a target="_blank" href="http://localhost:4000">Yu Wen</a></div>
+              <br />
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#单项目" id="markdown-toc-单项目">单项目</a></li>
+  <li><a href="#双项目" id="markdown-toc-双项目">双项目</a></li>
+  <li><a href="#三项目" id="markdown-toc-三项目">三项目</a></li>
+  <li><a href="#四项目" id="markdown-toc-四项目">四项目</a></li>
+  <li><a href="#五项目" id="markdown-toc-五项目">五项目</a></li>
+  <li><a href="#六项目" id="markdown-toc-六项目">六项目</a></li>
+</ul>
+
+<p>根据之前看的flex布局的语法，结合网上的实例教程，写了几个骰子的布局（实例来自阮一峰的网络日志Flex布局教程:实例篇）。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div class="box"&gt;
+  &lt;span class="item"&gt;&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<p>在上面的代码中，div元素（代表骰子的一个面）是Flex容器，span元素（代表一个点）是Flex项目，如果有多个项目，就要添加多个span元素。</p>
+
+<h3 id="单项目">单项目</h3>
+<p><img src="/styles/images/flex布局实例/flex2.png" alt="flex2" title="单项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex3.png" alt="flex3" title="单项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	justify-content:center;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex4.png" alt="flex4" title="单项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	justify-content:flex-end;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex5.png" alt="flex5" title="单项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	align-items:center;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex6.png" alt="flex6" title="单项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex7.png" alt="flex7" title="单项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	align-items:flex-end:
+	justify-content:center;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex8.png" alt="flex8" title="单项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	align-items:flex-end;
+	justify-content:flex-end;
+}
+</code></pre>
+</div>
+
+<h3 id="双项目">双项目</h3>
+<p><img src="/styles/images/flex布局实例/flex9.png" alt="flex9" title="双项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	justify-content:space-between;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex10.png" alt="flex10" title="双项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex11.png" alt="flex11" title="双项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	align-items:center;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex12.png" alt="flex12" title="双项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	align-items:flex-end;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex13.png" alt="flex13" title="双项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+}
+.item:nth-child(2){
+	align-self:center;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex14.png" alt="flex14" title="双项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	justify-content:space-between;
+}
+.item:nth-child(2){
+	align-self:flex-end;
+}
+</code></pre>
+</div>
+
+<h3 id="三项目">三项目</h3>
+<p><img src="/styles/images/flex布局实例/flex15.png" alt="flex15" title="三项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+}
+.item:nth-child(2){
+	align-self:center;
+}
+.item:nth-child(3){
+	align-self:flex-end;
+}
+</code></pre>
+</div>
+
+<h3 id="四项目">四项目</h3>
+<p><img src="/styles/images/flex布局实例/flex16.png" alt="flex16" title="四项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	flex-wrap;wrap;
+	justify-content:flex-end;
+	align-content:space-between;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex17.png" alt="flex17" title="四项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div class="box"&gt;
+  &lt;div class="column"&gt;
+     &lt;span class="item"&gt;&lt;/span&gt;
+     &lt;span class="item"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="column"&gt;
+     &lt;span class="item"&gt;&lt;/span&gt;
+     &lt;span class="item"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.box{
+	display:flex;
+	flex-wrap:wrap;
+	align-content:space-between;
+}
+.column{
+	flex-basis:100%;
+	display:flex;
+	justify-content:space-between;
+}
+</code></pre>
+</div>
+
+<h3 id="五项目">五项目</h3>
+<p><img src="/styles/images/flex布局实例/flex18.png" alt="flex18" title="五项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div class="box"&gt;
+  &lt;div class="column"&gt;
+    &lt;span class="item"&gt;&lt;/span&gt;
+    &lt;span class="item"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="column"&gt;
+    &lt;span class="item"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="column"&gt;
+    &lt;span class="item"&gt;&lt;/span&gt;
+    &lt;span class="item"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.box{
+	display:flex;
+	justify-content:space-between;
+}
+.column{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+}
+.column:nth-of-type(2){
+	justify-content:center;
+}
+</code></pre>
+</div>
+
+<h3 id="六项目">六项目</h3>
+<p><img src="/styles/images/flex布局实例/flex19.png" alt="flex19" title="六项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	flex-wrap:wrap;
+	align-content:space-between;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex20.png" alt="flex20" title="六项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	flex-wrap:wrap;
+	flex-direction:column;
+	align-content:space-between;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex21.png" alt="flex21" title="六项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div class="box"&gt;
+  &lt;div class="row"&gt;
+    &lt;span class="item"&gt;&lt;/span&gt;
+    &lt;span class="item"&gt;&lt;/span&gt;
+    &lt;span class="item"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="row"&gt;
+    &lt;span class="item"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="row"&gt;
+    &lt;span class="item"&gt;&lt;/span&gt;
+    &lt;span class="item"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.box{
+	display:flex;
+	flex-wrap:wrap;
+}
+.row{
+	flex-basis:100%;
+	display:flex;
+}
+.row:nth-child(2){
+	justify-content:center;
+}
+.row:nth-child(3){
+	justify-content:space-between;
+}
+</code></pre>
+</div>
+
+<p><img src="/styles/images/flex布局实例/flex22.png" alt="flex22" title="九项目" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.box{
+	display:flex;
+	flex-wrap:wrap;
+}
+</code></pre>
+</div>
+
+<p>完整实例: <a href="https://github.com/yuwen1687/study-demo/tree/master/flex%E5%B8%83%E5%B1%80">骰子布局</a></p>
+
+
+              <div class="text-center" style="margin-top: 10%">
+              <a class="btn btn-warning" href="/donate/">
+                 <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+              </a>
+            </div>
+            </article>
+        </div>
+      </div>
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+             
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container">
+		<p style="text-align: center;" class="copyright">Copyright &copy; 2016-2017 <a href=""><code>Yu Wen</code></a>.</p>
+		<p style="text-align: center;">Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="http://lesscss.cn/">Less</a>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  </body>
+</html>
