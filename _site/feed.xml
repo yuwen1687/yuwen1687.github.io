@@ -5,9 +5,226 @@
     <description>前端菜鸟学习经历分享</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 27 Jul 2017 20:46:42 +0800</pubDate>
-    <lastBuildDate>Thu, 27 Jul 2017 20:46:42 +0800</lastBuildDate>
+    <pubDate>Mon, 31 Jul 2017 21:14:25 +0800</pubDate>
+    <lastBuildDate>Mon, 31 Jul 2017 21:14:25 +0800</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>继承</title>
+        <description>
+&lt;p&gt;继承是面向对象程序设计&lt;/p&gt;
+</description>
+        <pubDate>Mon, 31 Jul 2017 20:10:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/07/31/%E7%BB%A7%E6%89%BF/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/07/31/%E7%BB%A7%E6%89%BF/</guid>
+        
+        <category>JS</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
+    
+      <item>
+        <title>面向对象程序设计</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#面向过程&quot; id=&quot;markdown-toc-面向过程&quot;&gt;面向过程&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#面向对象&quot; id=&quot;markdown-toc-面向对象&quot;&gt;面向对象&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1工厂模式&quot; id=&quot;markdown-toc-1工厂模式&quot;&gt;1、工厂模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2构造函数模式&quot; id=&quot;markdown-toc-2构造函数模式&quot;&gt;2、构造函数模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#3原型模式&quot; id=&quot;markdown-toc-3原型模式&quot;&gt;3、原型模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#4组合使用构造函数模式和原型模式&quot; id=&quot;markdown-toc-4组合使用构造函数模式和原型模式&quot;&gt;4、组合使用构造函数模式和原型模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#5动态原型模式&quot; id=&quot;markdown-toc-5动态原型模式&quot;&gt;5、动态原型模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#6寄生构造函数模式&quot; id=&quot;markdown-toc-6寄生构造函数模式&quot;&gt;6、寄生构造函数模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#7稳妥构造函数模式&quot; id=&quot;markdown-toc-7稳妥构造函数模式&quot;&gt;7、稳妥构造函数模式&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一直对于面向对象和面向过程的一些东西，理解有点混乱，今天结合JS的一些东西来深入理解了一下面向对象的程序设计。&lt;/p&gt;
+
+&lt;h2 id=&quot;面向过程&quot;&gt;面向过程&lt;/h2&gt;
+&lt;p&gt;面向过程就是面向解决问题的过程进行编程，按照罗列的步骤去解决问题，程序的主题就是函数，总结起来就是自顶向下，逐步细化。&lt;/p&gt;
+
+&lt;h2 id=&quot;面向对象&quot;&gt;面向对象&lt;/h2&gt;
+&lt;p&gt;面向对象就是就是在编程的时候尽可能地去模拟真实的世界，按照现实世界中的逻辑去处理问题，分析问题中的参与的实体，实体的属性和方法，以及如何通过调用这些实体的属性和方法去解决问题。简而言之就是将程序模块化，对象化，把具体事务的特征属性和通过这些属性来实现的一些动作的具体方法放到一个类里面。三大特征：封装、继承、多态。&lt;/p&gt;
+
+&lt;h3 id=&quot;1工厂模式&quot;&gt;1、工厂模式&lt;/h3&gt;
+&lt;p&gt;工厂模式解决了用object构造函数或对象字面量使用同一个接口创建对象时会产生大量重复代码的问题。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function createPerson(name,age,job){
+	var o = new object();
+	o.name = name;
+	o.age = age;
+	o.job = job;
+	o.sayName = function(){
+		alert(this.name);
+	};
+	return o;
+}
+var person1 = createPerson(&quot;Nicolas&quot;,29,&quot;software Engineer&quot;);
+var person2 = createPerson(&quot;Greg&quot;,27,&quot;Doctor&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;工厂模式虽然解决了创建多个相似对象的问题，但却没有解决对象识别的问题（即怎么知道一个对象的类型），于是出现了构造函数模型。&lt;/p&gt;
+
+&lt;h3 id=&quot;2构造函数模式&quot;&gt;2、构造函数模式&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Person(name,age,job){
+	this.name = name;//this指向调用该方法的对象
+	this.age = age;
+	this.job = job;
+	this.sayName=function(){
+		alert(this.name);
+	};
+}
+var person1 = new Person(&quot;Nicolas&quot;,29,&quot;software Engineer&quot;);
+var person2 = new Person(&quot;Greg&quot;,27,&quot;Doctor&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;构造函数始终以一个大写字母开头，而非构造函数则应以一个小写字母开头。&lt;br /&gt;
+构造函数与工厂模式的区别：&lt;br /&gt;
+1、没有显示地创建对象；&lt;br /&gt;
+2、直接将属性和方法赋值给了this对象；&lt;br /&gt;
+3、没有return语句。&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;构造函数的主要问题是每个方法要在每个实例上重新创建一遍，要解决这个问题，可以将方法移出来设置成全局函数，但又会带来一个新的问题：虽然函数在全局作用域中，但只能被某个对象调用，让全局作用域有点名不副实，而且如果需要定义很多方法就要定义很多个全局函数，那么这个自定义的引用类型就没有封装性可言了，所以就出现了原型模式。&lt;/p&gt;
+
+&lt;h3 id=&quot;3原型模式&quot;&gt;3、原型模式&lt;/h3&gt;
+&lt;p&gt;每个函数都有一个prototype(原型)属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。使用原型对象的好处是可以让所有对象实例共享它所包含的属性和方法。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Person(){}
+	Person.prototype.name = &quot;Nicholas&quot;;
+	Person.prototype.age = 29;
+	Person.prototype.job = &quot;software Engineer&quot;;
+	Person.prototype.sayName = function(){
+		alert(this.name);
+	};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;原型的字面量写法：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Person(){}
+Person.prototype = {
+	name : &quot;Nicholas&quot;,
+	age : 29,
+	job : &quot;software Engineer&quot;,
+	sayName : function(){
+		alert(this.name);
+	}
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;原型模型的执行过程：&lt;br /&gt;
+1、先查找构造函数实例里的属性或方法，如果有，立刻返回。&lt;br /&gt;
+2、如果构造函数实例里没有，则去它的原型对象里找，如果有，就返回。&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;要确定给定属性是存在于对象中还是存在于原型中，可以用一下方法检测：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function hasPrototypeProperty(object,name){
+	return !object.hasOwnProperty(name) &amp;amp;&amp;amp; (name in object);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;in操作符只要通过对象能访问到属性就会返回true，hasOwnProperty()只有在属性存在于实例中时才会返回true，因此只要in操作符返回true，而hasOwnProperty()返回false，就可以确定属性是原型中的属性。&lt;/p&gt;
+
+&lt;h3 id=&quot;4组合使用构造函数模式和原型模式&quot;&gt;4、组合使用构造函数模式和原型模式&lt;/h3&gt;
+&lt;p&gt;原型对象存在的一个问题是所有实例在默认情况下都将取得相同的属性值。要解决这种问题最常见的是组合使用构造函数模式和原型模式。构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Person(name,age,job){
+	this.name = name;
+	this.age = age;
+	this.job = job;
+	this.friends = [&quot;Shelby&quot;,&quot;Court&quot;];
+}
+Person.prototype = {
+	constructor: Person
+	sayName:function(){
+		alert(this.name);
+	}
+}
+var person1 = new Person(&quot;Nicholas&quot;,29,&quot;Software Engineer&quot;);
+var person2 = new Person(&quot;Greg&quot;,27,&quot;Doctor&quot;);
+
+person1.friends.push(&quot;Van&quot;);
+alert(person1.friends);  //&quot;Shelby,Court,Van&quot;
+alert(person2.friends);  //&quot;Shelby,Court&quot;
+alert(person1.friends === person2.friends);  //false
+alert(person1.sayName === person2.sayName);  //true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;5动态原型模式&quot;&gt;5、动态原型模式&lt;/h3&gt;
+&lt;p&gt;在上面的组合中，每次实例化一个对象后，不管sayName方法是否存在，都会将sayName方法添加到原型中，而使用动态原型模式，这段代码只会在初次调用构造函数时执行。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Person(name,age,job){
+	this.name = name;
+	this.age = age;
+	this.job = job;
+	if(typeof this.sayName!=&quot;function&quot;){
+		Person.prototype.sayName = function(){
+			alert(this.name);
+		};
+	}
+}
+var friend = new Person(&quot;Nicholas&quot;,29,&quot;Software Engineer&quot;);
+friend.sayName(); //Nicholas
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;6寄生构造函数模式&quot;&gt;6、寄生构造函数模式&lt;/h3&gt;
+&lt;p&gt;寄生构造函数模式的基本思想是创建一个函数，该函数的作用仅仅是封装创建对象的代码，然后再返回新创建的对象。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Person(name,age,job){
+	var o = new Object();
+	o.name = name;
+	o.job = job;
+	o.sayName = function(){
+      alert(this.name);
+	};
+	return o;
+}
+var friend =Person(&quot;Nicholas&quot;,29,&quot;Software Engineer&quot;);
+friend.sayName(); //Nicjolas
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;缺点：返回的对象与构造函数或者与构造函数的原型属性之间没有关系，也就是说构造函数返回的对象与在构造函数外部创建的对象没有什么不同，所以，不能依赖instanceof操作符来确定对象类型。&lt;/p&gt;
+
+&lt;h3 id=&quot;7稳妥构造函数模式&quot;&gt;7、稳妥构造函数模式&lt;/h3&gt;
+&lt;p&gt;所谓稳妥，指的是没有公共属性，而且其方法也不引用this对象。&lt;br /&gt;
+稳妥构造函数遵循与寄生构造函数类似的模式，但有两点不同：&lt;br /&gt;
+一是新创建对象的实例方法不引用this；
+二是不使用new操作符调用构造函数。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Person(name,age,job){
+	var o = new Object(); //创建要返回的对象
+	                     //可以在这里定义私有变量和函数
+	o.sayName = function(){ //添加方法
+		alert(name);
+	};
+	return 0; //返回对象
+}
+var friend = Person(&quot;Nicholas&quot;,29,&quot;Software Engineer&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Sun, 30 Jul 2017 16:10:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/07/30/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/07/30/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
+        
+        <category>JS</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
     
       <item>
         <title>block、inline、inline-block的区别</title>
@@ -941,129 +1158,6 @@ left的style中设置了float:left所以left这一块存在BFC布局，根据BFC
         
         
         <category>工具</category>
-        
-      </item>
-    
-      <item>
-        <title>JavaScript变量、作用域和内存问题</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#基本内容&quot; id=&quot;markdown-toc-基本内容&quot;&gt;基本内容&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#预加载变量提升&quot; id=&quot;markdown-toc-预加载变量提升&quot;&gt;预加载、变量提升&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;基本内容&quot;&gt;基本内容&lt;/h2&gt;
-
-&lt;p&gt;1、ECMAScript变量包含两种类型的值：基本类型值和引用类型值。&lt;br /&gt;
-2、JavaScript变量为松散类型，松散类型变量的特点就是定义的时候不给它指定类型，变量在运行的时候可以随便改变数据类型。&lt;br /&gt;
-3、执行环境及作用域&lt;br /&gt;
-执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。
-每个函数都有自己的执行环境。当执行流进入下一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行之后，栈将其环境弹出，把控制权交给之前的执行环境。
-当代码在一个环境中执行时，会创建变量对象的一个作用域链，作用域链的用途是保证对执行环境有权访问的所有变量和函数的有序访问。&lt;/p&gt;
-
-&lt;p&gt;示例代码1:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var color = &quot;blue&quot;;  
-function changeColor(){  
-  if(color===&quot;blue&quot;){  
-    color=&quot;red&quot;;  
-    }else{  
-     color=&quot;blue&quot;;  
-    }  
-}  
-changeColor();  
-console.log(&quot;Color is now&quot;+color);   
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;运行结果：Color is now red&lt;br /&gt;
-在上面这个例子中，变量color为全局环境的变量对象，在作用域链中可以找到它，所以在函数内部可以访问变量color，执行if语句，color变成red。&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;示例代码2:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var color = &quot;blue&quot;;  
-function changeColor(){  
-var anotherColor = &quot;red&quot;;  
-function swapColors(){  
-  var tempColor = anotherColor;  
-  anotherColor = color;  
-  color = tempColor;  
-  //这里可以访问color、anotherColor和tempColor
-}  
-//这里可以访问color和anotherColor,但不能访问tempColor  
-  swapColors();  
-}  
-//这里只能访问color  
-changeColor();  
-console.log(&quot;color is now &quot;+ color);  
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;运行结果：color is now red&lt;br /&gt;
-在上面这个例子中，涉及三个执行环境，：全局环境、changeColor()的局部环境和swapColor()的局部环境，全局环境中有一个变量color和changeColor()函数，changeColor()局部环境中有一个变量anotherColor和swapColors()函数，但是可以访问变量color,swapColors()局部环境中包含一个变量tempColor，但是可以访问变量color和变量anotherColor。
-这段代码环境的作用域链如下图所示
-&lt;img src=&quot;/styles/images/JavaScript变量、作用域和内存问题/zuoyongyu.png&quot; alt=&quot;/styles/images/JavaScript变量、作用域和内存问题/zuoyongyu.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-在执行环境中，内部环境可以通过作用域链访问外部环境的变量和函数，但是外部环境不能访问内部环境的变量和函数，每个环境只能向上搜索作用域链。&lt;/p&gt;
-
-&lt;h2 id=&quot;预加载变量提升&quot;&gt;预加载、变量提升&lt;/h2&gt;
-&lt;p&gt;javascript语言的松散类型的特点以及运行时候随时更改变量类型的特点，很多程序员会认为javascript变量的定义是在运行期进行的，更有甚者有些人认为javascript代码只有运行期，其实这种理解是错误的，javascript代码在运行前还有一个过程就是：预加载，预加载的目的是要事先构造运行环境例如全局环境，函数运行环境，还要构造作用域链，而环境和作用域的构造的核心内容就是指定好变量属于哪个范畴，因此在javascript语言里变量的定义是在预加载完成而非在运行时期。&lt;br /&gt;
-JavaScript引擎的工作方式是先解析代码，获取所有被声明的变量，然后再一行一行的运行，这造成的结果，就是所有变量的声明语句都会被提升到代码的头部，这就叫做变量提升。
-例:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var a = 1;  
-function test(){  
-  console.log(a);//undefined  
-  var a = 2;  
-  console.log(a);//2  
-}  
-test();  
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;上面这段代码在函数的局部作用域下变量a被重新定义了，在预加载时候a的作用域范围也就被框定了，a变量不再属于全局变量，而是属于函数作用域，只不过赋值操作是在运行期执行（这就是为什么javascript语言在运行时候会改变变量的类型，因为赋值操作是在运行期进行的），所以第一次使用a变量时候，a变量在局部作用域里没有被赋值，只有栈区的标示名称，因此结果就是undefined了。（这也就是js里的变量提升的原理）&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 16 Feb 2017 09:20:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/16/JavaScript%E5%8F%98%E9%87%8F-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/16/JavaScript%E5%8F%98%E9%87%8F-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98/</guid>
-        
-        <category>JS</category>
-        
-        
-        <category>前端</category>
-        
-      </item>
-    
-      <item>
-        <title>JavaScript基本内容</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#javascript与ecmascript&quot; id=&quot;markdown-toc-javascript与ecmascript&quot;&gt;JavaScript与ECMAScript&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#script六大属性&quot; id=&quot;markdown-toc-script六大属性&quot;&gt;script六大属性&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;javascript与ecmascript&quot;&gt;JavaScript与ECMAScript&lt;/h1&gt;
-&lt;p&gt;1、由于Netscape Navigator中的JavaScript与IE中的JScript同时存在，为了统一标准，1997年，欧洲计算机制造商协会完成了ECMA-262——一种名为ECMAScript的新脚本语言的标准。ECMAScript是JavaScript的核心，JavaScript由ECMAScript+Dom+Bom组成。
-&lt;br /&gt;
-2、JavaScript由ECMAScript+Dom+Bom组成，Dom主要实现对HTML内部元素的操作，Bom主要实现对浏览器的操作。&lt;/p&gt;
-
-&lt;h1 id=&quot;script六大属性&quot;&gt;script六大属性&lt;/h1&gt;
-&lt;p&gt;（1）async:表示应该立即下载脚本，不妨碍页面其他操作。&lt;br /&gt;
-（2）defer:脚本可以延迟到其他文档完全被解析和显示之后再执行&lt;br /&gt;
-（3）charset:表示通过src属性指定的代码的字符集&lt;br /&gt;
-（4）src:表示包含要执行代码的外部文件&lt;br /&gt;
-（5）language:原来用来表示编写代码使用的脚本语言，已废弃&lt;br /&gt;
-（6）type:可以看成是language的替代属性，表示编写代码使用的脚本语言的内容类型&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 15 Feb 2017 01:08:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/15/JavaScript%E5%9F%BA%E6%9C%AC%E5%86%85%E5%AE%B9/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/15/JavaScript%E5%9F%BA%E6%9C%AC%E5%86%85%E5%AE%B9/</guid>
-        
-        <category>JS</category>
-        
-        
-        <category>前端</category>
         
       </item>
     
